@@ -7,8 +7,16 @@ const pokemon3 = document.getElementById('pokemon3');
 
 // initialize state
 
+let catchCounter = 0;
+const caught = [];
 
 function setupPokemon() {
+
+    catchCounter++;
+
+    if (catchCounter === 11) {
+        window.location.href = 'results.html';
+    }
 
     let randomIndex1 = Math.floor(Math.random() * 14);
     let randomIndex2 = Math.floor(Math.random() * 14);
@@ -37,7 +45,6 @@ setupPokemon();
 
 // set event listeners to update state and DOM
 
-const caught = [];
 
 pokemon1.addEventListener('click', () => {
     caught.push(pokemon1.id);
@@ -46,11 +53,12 @@ pokemon1.addEventListener('click', () => {
 
 pokemon2.addEventListener('click', () => {
     caught.push(pokemon2.id);
+    setupPokemon();
 });
 
 pokemon3.addEventListener('click', () => {
     caught.push(pokemon3.id);
+    setupPokemon();
 });
 
-console.log(caught);
 
