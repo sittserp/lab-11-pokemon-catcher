@@ -2,11 +2,26 @@
 import pokedex from './assets/pokedex.js';
 import { findById } from './utils.js';
 
+const BAG = 'BAG';
+
+function setInLocalStorage(key, value) {
+    const stringyItem = JSON.stringify(value);
+    localStorage.setItem(key, stringyItem);
+}
+
+function getFromLocalStorage(key) {
+    const item = localStorage.getItem(key);
+    return JSON.parse(item);
+}
+
 const pokemon1 = document.getElementById('pokemon1');
 const pokemon2 = document.getElementById('pokemon2');
 const pokemon3 = document.getElementById('pokemon3');
 
+const turnDisplay = document.getElementById('turn-counter');
+
 const radioButtons = document.querySelectorAll('input');
+
 
 // initialize state
 
@@ -16,10 +31,12 @@ export const seen = [];
 function setupPokemon() {
 
     turnCounter++;
+    turnDisplay.textContent = `Turn #${turnCounter}`;
     radioButtons.checked = false;
     console.log(turnCounter);
 
     if (turnCounter === 11) {
+        setInLocalStorage(BAG, seen);
         window.location.href = 'results.html';
     }
 
