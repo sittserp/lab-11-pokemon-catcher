@@ -135,6 +135,11 @@ table, th, td {
     font-family: "pokemon";
 }
 
+canvas {
+    width: 75%;
+    height: 500px;
+  }
+
 
 content {
     width: 80%;

@@ -19,12 +19,15 @@ for (let i = 0; i < seen.length; i++) {
 }
 
 const caughtPokemon = seen.map(choices => choices.captured);
+
 const labels = seen.map(choices => choices.pokemon);
 
 const ctx = document.getElementById('chart').getContext('2d');
 
+console.log(caughtPokemon, 'caughtPokemon');
+
 // const data = [12, 19, 3, 5, 2, 3];
-const labelColors = ['red', 'blue', 'yellow', 'green', 'purple', 'orange'];
+const labelColors = ['red', 'blue', 'yellow', 'green', 'purple', 'orange', 'brown', 'black', 'magenta', 'lightblue', 'darkgreen', 'aqua', 'aquamarine'];
 
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -47,8 +50,3 @@ const myChart = new Chart(ctx, {
     }
 });
 
-myChart.data.datasets[0].data = [100, 200, 300, 50, 10];
-
-console.log(myChart.data.datasets[0].data);
-
-console.log(BAG);
