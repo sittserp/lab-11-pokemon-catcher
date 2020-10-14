@@ -9,11 +9,6 @@ function setInLocalStorage(key, value) {
     localStorage.setItem(key, stringyItem);
 }
 
-function getFromLocalStorage(key) {
-    const item = localStorage.getItem(key);
-    return JSON.parse(item);
-}
-
 const pokemon1 = document.getElementById('pokemon1');
 const pokemon2 = document.getElementById('pokemon2');
 const pokemon3 = document.getElementById('pokemon3');
@@ -30,8 +25,8 @@ export const seen = [];
 
 function setupPokemon() {
 
+    turnDisplay.textContent = `You have caught ${turnCounter} pokemon!`;
     turnCounter++;
-    turnDisplay.textContent = `Turn #${turnCounter}`;
     radioButtons.checked = false;
     console.log(turnCounter);
 
